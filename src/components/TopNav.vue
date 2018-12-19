@@ -6,16 +6,13 @@
 </template>
 
 <script>
-import bNavbar from 'bootstrap-vue/es/components/navbar/navbar'
-import bNavbarBrand from 'bootstrap-vue/es/components/navbar/navbar-brand'
+// import { Navbar } from 'bootstrap-vue/es/components' 
 import SearchBar from './SearchBar'
 // What is a plug-in? When Do I use one?
 
 export default {
     name: 'TopNav',
     components: {
-        bNavbar,
-        bNavbarBrand,
         SearchBar
     }
 }
