@@ -6,17 +6,8 @@
 </template>
 
 <script>
-import bNavForm from 'bootstrap-vue/es/components/nav/nav-form'
-import bFormInput from 'bootstrap-vue/es/components/form-input/form-input'
-import bButton from 'bootstrap-vue/es/components/button/button'
-
 export default {
     name: 'SearchBar',
-    components: {
-        bNavForm,
-        bFormInput,
-        bButton
-    }
 }
 </script>
 

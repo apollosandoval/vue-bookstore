@@ -1,7 +1,7 @@
 <template>
     <b-navbar type="dark" variant="primary">
         <b-navbar-brand>Vue Bookstore</b-navbar-brand>
-        <SearchBar />
+        <search-bar />
     </b-navbar>
 </template>
 
@@ -13,7 +13,7 @@ import SearchBar from './SearchBar'
 export default {
     name: 'TopNav',
     components: {
-        SearchBar
+        'search-bar': SearchBar
     }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <TopNav />
+    <top-nav />
     <b-container>
       <b-row>
         <!-- BookList -->
@@ -11,13 +11,13 @@
             </b-col>
             <b-col cols="6">
               <!-- Filter Input Component -->
-              <FilterBar />
+              <filter-bar />
             </b-col>
           </b-row>
           <b-row>
             <b-col>
               <!-- Insert BookList Component -->
-              <BookList />
+              <book-list v-bind:books="books"/>
             </b-col>
           </b-row>
         </b-col>
@@ -31,7 +31,7 @@
           <b-row>
             <b-col>
               <!-- Shopping Cart Component -->
-              <ShoppingCart />
+              <shopping-cart v-bind:booksInCart="booksInCart" />
             </b-col>
           </b-row>
         </b-col>
@@ -46,13 +46,33 @@ import ShoppingCart from './components/ShoppingCart'
 import BookList from './components/BookList'
 import FilterBar from './components/FilterBar'
 
+import axios from 'axios'
+
 export default {
   name: 'app',
   components: {
-    TopNav,
-    ShoppingCart,
-    BookList,
-    FilterBar
+    'top-nav': TopNav,
+    'shopping-cart': ShoppingCart,
+    'book-list': BookList,
+    'filter-bar': FilterBar
+  },
+  data() {
+    return {
+      books: []
+    }
+  },
+  mounted() {
+    axios
+      .get('http://localhost:8082/api/books')
+      .then( res => this.books=res.data )
+  },
+  methods: {
+
+  },
+  computed: {
+    booksInCart: function() {
+      return this.books.filter(book => book.inCart)
+    }
   }
 }
 </script>
